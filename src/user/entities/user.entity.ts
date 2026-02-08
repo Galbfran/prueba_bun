@@ -14,6 +14,11 @@ export class UserEntity {
   @Column()
   lastName: string;
 
+  @Transform(({ value }) => value?.trim().toLowerCase())
+  @Column()
+  cuit: string;
+
+
   @Transform(({ value }) => value.trim().toLowerCase())
   @Column()
   email: string;

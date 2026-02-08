@@ -3,6 +3,7 @@ import { ValidationPipe, ClassSerializerInterceptor } from '@nestjs/common';
 import { NestFactory, Reflector } from '@nestjs/core';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import { AppModule } from './app.module';
+import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -11,6 +12,7 @@ async function bootstrap() {
   );
   app.setGlobalPrefix('api');
   app.useGlobalInterceptors(
+    new LoggingInterceptor(),
     new ClassSerializerInterceptor(app.get(Reflector)),
   );
   app.useGlobalPipes(

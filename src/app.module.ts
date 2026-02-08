@@ -18,6 +18,7 @@ import { UserEntity } from './user/entities/user.entity';
       entities: [
         UserEntity,
       ],
+      
       synchronize: true,
     }),
     UserModule,

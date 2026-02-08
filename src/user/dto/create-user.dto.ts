@@ -1,6 +1,7 @@
 import {
   IsEmail,
   IsNotEmpty,
+  IsOptional,
   IsString,
   MinLength,
   MaxLength,
@@ -21,6 +22,13 @@ export class CreateUserDto {
   @IsNotEmpty({ message: 'El email es requerido' })
   @IsEmail({}, { message: 'Email no válido' })
   email: string;
+
+
+  @IsString()
+  @Matches(/^\d{7,15}$/, {
+    message: 'El CUIT debe contener entre 7 y 15 dígitos',
+  })
+  cuit?: string;
 
   @IsNotEmpty({ message: 'La contraseña es requerida' })
   @IsString()
