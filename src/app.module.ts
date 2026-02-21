@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { UserEntity } from './user/entities/user.entity';
 import { MercadopagoModule } from './mercadopago/mercadopago.module';
+import { PaymentMercadoPagoModule } from './payment_mercado_pago/payment_mercado_pago.module';
 
 
 @Module({
@@ -23,6 +24,7 @@ import { MercadopagoModule } from './mercadopago/mercadopago.module';
     }),
     UserModule,
     MercadopagoModule,
+    PaymentMercadoPagoModule,
 
   ],
   controllers: [AppController],

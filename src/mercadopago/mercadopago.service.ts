@@ -1,9 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import MercadoPagoConfig from 'mercadopago';
 import { CreateMercadopagoDto } from './dto/create-mercadopago.dto';
 import { UpdateMercadopagoDto } from './dto/update-mercadopago.dto';
 
 @Injectable()
 export class MercadopagoService {
+  private readonly mercadopagoConfig: MercadoPagoConfig;
+
+  constructor() {
+    this.mercadopagoConfig = new MercadoPagoConfig({
+      accessToken: process.env.ACCESS_TOKEN_MERCADOPAGO || 'test_public_key',
+    });
+  }
   create(createMercadopagoDto: CreateMercadopagoDto) {
     return 'This action adds a new mercadopago';
   }
