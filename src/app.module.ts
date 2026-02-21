@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { UserEntity } from './user/entities/user.entity';
+import { MercadopagoModule } from './mercadopago/mercadopago.module';
 
 
 @Module({
@@ -21,6 +22,7 @@ import { UserEntity } from './user/entities/user.entity';
       synchronize: process.env.DB_SYNCHRONIZE === 'true' || false,
     }),
     UserModule,
+    MercadopagoModule,
 
   ],
   controllers: [AppController],
